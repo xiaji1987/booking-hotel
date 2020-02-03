@@ -5,6 +5,6 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.booking.getCurrency);
-  router.post('/user/login', controller.user.login)
+  router.get('/api/booking/currency', controller.booking.getCurrency);
+  router.post('/api/user/login', controller.user.login)
 };

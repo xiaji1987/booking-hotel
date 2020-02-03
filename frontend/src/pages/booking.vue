@@ -1,7 +1,6 @@
 <template>
   <div class="booking">
     <bookingHeader />
-    main 主体
     <router-view />
   </div>
 </template>

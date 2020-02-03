@@ -19,8 +19,8 @@
     Service所在文件夹为：demo/app/service/*，Service必须直接继承自eggjs的Service。
   - model
     与数据库进行对接
-    
-2. egg跨域问题
+
+4. egg跨域问题
   步骤一：
   1. 下载 egg-cors 包
   npm i egg-cors --save

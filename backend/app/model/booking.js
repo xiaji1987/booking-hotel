@@ -1,5 +1,5 @@
 module.exports = app => {
-  console.log('model层')
+  // console.log('model层')
   const { INTEGER, STRING, BOOLEAN}  = app.Sequelize;
   const currency = app.model.define('currency', {
     id: {

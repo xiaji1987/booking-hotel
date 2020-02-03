@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/currency': {
+        target: 'http://127.0.0.1:7001/api/booking/currency',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/currency': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
