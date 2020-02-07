@@ -27,19 +27,13 @@ time, mark, audio, video, input {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font-weight: normal;
-    vertical-align: baseline;
+    outline: none;
 }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
     display: block;
-}
-
-body {
-    line-height: 1;
 }
 
 blockquote, q {
@@ -62,7 +56,6 @@ a {
     -webkit-backface-visibility: hidden;
     cursor: pointer;
     outline: 0;
-    color: #323232;
 }
 
 li {

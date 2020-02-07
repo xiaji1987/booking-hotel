@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5 Copy 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-850.000000, -388.000000)">
+        <g id="Group-4" transform="translate(189.000000, 367.000000)">
+            <g id="Group-5-Copy-5" transform="translate(657.000000, 18.000000)">
+                <rect id="Rectangle-4" x="0" y="0" width="24" height="24"></rect>
+                <g id="occupancy" transform="translate(4.000000, 3.000000)" fill="#BDBDBD" fill-rule="nonzero">
+                    <path d="M11.8868966,4.0978125 C11.8868966,6.3658125 10.086069,8.1984375 7.86482759,8.1984375 C5.64358621,8.1984375 3.84275862,6.3658125 3.84275862,4.0978125 C3.8422069,1.8331875 5.64358621,0 7.86427586,0 C10.0849655,0 11.8868966,1.8331875 11.8868966,4.0978125 Z" id="Shape"></path>
+                    <path d="M14.5533793,10.8106875 C13.4273103,10.2751875 10.7216552,9.952875 7.91337931,9.963 L7.808,9.963 C5.00358621,9.954 2.29793103,10.2751875 1.17131034,10.8106875 C0.499862069,11.122875 -0.0110344828,11.9295 0.0684137931,12.6765 L0.343172414,18 L15.3804138,18 L15.6557241,12.6765 C15.7329655,11.9289375 15.2215172,11.1234375 14.5533793,10.8106875 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

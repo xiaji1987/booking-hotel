@@ -146,6 +146,7 @@ export default {
           white-space nowrap
           position relative
           .B_currency_choice
+            z-index 10
             position absolute
             left -376px
             top 50px

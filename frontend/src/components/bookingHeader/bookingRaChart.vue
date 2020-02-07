@@ -3,14 +3,14 @@
     <div class="B_raChart">
       <ul class="B_raChart_ul">
         <li class="B_raChart_li" v-for="(item, index) in raChartList" :key="index" @mouseenter="raChartEnter(index)" @click="raChartClick(index)">
-          <router-link :to="item.linkTo">
+          <router-link :to="item.linkTo" class="B_raChart_linkto">
             <div class="B_raChart_img">
-              <img :src="index === raChartHover ? item.imageLow : item.imageUp" :alt="item.name">
+              <img :src="index === raChartHover ? item.imageUp :item.imageLow " :alt="item.name">
             </div>
             <div class="B_raChart_name">
               <span>{{item.name}}</span>
             </div>
-            <!-- <div class="B_raChart_tab" v-show="index === raChartOnClick"></div> -->
+            <div class="B_raChart_tab" v-show=" index === raChartOnClick "></div>
           </router-link>
         </li>
       </ul>
@@ -87,34 +87,35 @@ export default {
       .B_raChart_li
         float left
         padding 16px 8px 16px 4px
-        opacity .8
         text-align left
         margin-left 8px
         margin-right 16px
         position relative
-        .B_raChart_img
-          display inline-block
-          height 24px
-          width 24px
-          margin-right 12px
-          background-color #003580
-          opacity 1
-          img
-            vertical-align middle
+        .B_raChart_linkto
+          width 100%
+          height 100%
+          display block
+          .B_raChart_img
+            display inline-block
             height 24px
             width 24px
-        .B_raChart_name
-          color #ffffff
-          font-size 14px
-          line-height 20px
-          display inline-block
-        // .B_raChart_tab
-        //   color red
-        //   width 100%
-        //   height 4px
-        //   position absolute
-        //   left 0
-        //   top 56px
-        //   opacity 1
-        //   z-index 99
+            margin-right 12px
+            opacity 1
+            img
+              vertical-align middle
+              height 24px
+              width 24px
+          .B_raChart_name
+            color #ffffff
+            font-size 14px
+            line-height 20px
+            display inline-block
+          .B_raChart_tab
+            background-color #fff
+            width 100%
+            height 3px
+            position absolute
+            left 0
+            top 56px
+            overflow hidden
 </style>
