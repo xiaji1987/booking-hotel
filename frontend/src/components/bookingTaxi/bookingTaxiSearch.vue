@@ -132,6 +132,8 @@ export default {
           background-color #fff
           border-radius 4px
           margin-right 4px
+          padding-right 10px
+          cursor pointer
           .B_search_content_img
             width 48px
             height 54px
@@ -154,4 +156,21 @@ export default {
             overflow hidden
             text-overflow ellipsis
             font-weight bold
+          span
+            line-height 54px
+        .B_search_content_get
+          flex 1
+        .B_search_content_down
+         flex 1
+        .B_search_content_date
+          padding-right 30px
+        .B_search_content_time
+          padding-right 20px
+        .B_search_content_btn
+          background-color $common-color
+          width 133px
+          color #ffffff
+          text-align center
+          font-size 16px
+          font-weight bold
 </style>

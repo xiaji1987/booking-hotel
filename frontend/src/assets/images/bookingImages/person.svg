@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="71px" height="71px" viewBox="0 0 71 71" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>taxi-meet-driver</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rideways-LP-Desktop-v3" transform="translate(-196.000000, -1118.000000)" fill-rule="nonzero">
+            <g id="Stacked-Group-Copy" transform="translate(-8.000000, 772.000000)">
+                <g id="Group-10" transform="translate(203.000000, 0.000000)">
+                    <g id="taxi-meet-driver" transform="translate(1.000000, 346.000000)">
+                        <circle id="Oval-3" fill="#CCE1FF" cx="35.5" cy="35.5" r="35.5"></circle>
+                        <g id="person" transform="translate(18.000000, 10.000000)">
+                            <ellipse id="Oval" fill="#003580" cx="16.9402194" cy="4.37033145" rx="4.50926704" ry="4.37033145"></ellipse>
+                            <path d="M24.2426824,11.5659115 C24.2426824,11.5659115 19.8434027,10.6830324 17.060185,10.6830324 C14.2769672,10.6830324 9.87768758,11.5659115 9.87768758,11.5659115 C8.08206323,12.007351 7.9473914,13.0668059 8.08206323,14.2145487 L9.60834393,27.6784547 C9.66148077,28.116054 9.86780323,28.5218354 10.1919218,28.8261975 L10.9999528,29.6207886 C11.333519,29.9364204 11.5406308,30.3594209 11.5835307,30.8126754 L13.1995926,47.7639536 C13.2939397,48.7843595 14.1780999,49.5572076 15.21967,49.5297118 L18.9007,49.5297118 C19.9422701,49.5572076 20.8264303,48.7843595 20.9207774,47.7639536 L22.4470581,30.8126754 C22.489958,30.3594209 22.6970698,29.9364204 23.030636,29.6207886 L23.8386669,28.8261975 C24.1627855,28.5218354 24.369108,28.116054 24.4222448,27.6784547 L26.0383068,14.2145487 C26.1729786,13.0668059 26.0831974,12.007351 24.287573,11.5659115 L24.2426824,11.5659115 Z" id="Shape" fill="#003580"></path>
+                            <rect id="Rectangle" stroke="#FEBB02" stroke-width="6" fill="#FFFFFF" x="3" y="23.7080256" width="28.3679272" height="2.7406629"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
