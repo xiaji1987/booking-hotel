@@ -8,6 +8,11 @@ class BookingController extends Controller {
     // console.log('这是controller层');
     await ctx.service.booking.getCurrency()
   }
+
+  async getLocation() {
+    const { ctx } = this;
+    await ctx.service.booking.getLocation()
+  }
 }
 
 module.exports = BookingController;
