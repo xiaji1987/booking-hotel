@@ -8,12 +8,12 @@
       </div>
       <div class="B_hotel_show_sub">
         <div class="B_hotel_show_sub_two">
-          <div class="B_hotel_show_hotel" v-for="(item, index) in 2" :key="index">
-            <div class="B_hotel_show_bgc" style="background: url(https://ac-q.static.booking.cn/xdata/images/city/540x270/972892.webp?k=b0c78dcf54cfeb85fe679ece90b20cc0a2615d97c9a63154ff57f2a849caa345&o=) no-repeat center center; background-size: cover;">
+          <div class="B_hotel_show_hotel" v-for="(item, index) in locationMain" :key="index">
+            <div class="B_hotel_show_bgc" :style="`background: url(${item.location_Img}) no-repeat center center; background-size: cover;`">
               <router-link to="">
                 <div class="B_hotel_show_title">
                   <h3>
-                    海口
+                    {{item.hotel_Location}}
                     <img src="@/assets/images/nationalFlag/china.png" alt="中国">
                   </h3>
                   <div class="B_hotel_down" @mouseenter="showInterest(index)" @mouseleave="closeInterest()" @click="closeHotel(index)">
@@ -22,23 +22,23 @@
                   <div class="B_hotel_interest" v-show="isShowInterestIndex === index">
                     <span>不感兴趣</span>
                   </div>
-                  <p>168家住宿</p>
+                  <p>{{item.hotel_Count}}家住宿</p>
                 </div>
                 <div class="B_hotel_show_price">
                   <span class="B_hotel_price_copy">均价</span>
-                  <span class="B_hotel_price_value">335元</span>
+                  <span class="B_hotel_price_value">{{item.hotel_Price}}元</span>
                 </div>
               </router-link>
             </div>
           </div>
         </div>
         <div class="B_hotel_show_sub_three">
-          <div class="B_hotel_show_hotel B_hotel_show_three" v-for="(item, index) in 3" :key="index">
-            <div class="B_hotel_show_bgc" style="background: url(https://ac-q.static.booking.cn/xdata/images/city/540x270/972892.webp?k=b0c78dcf54cfeb85fe679ece90b20cc0a2615d97c9a63154ff57f2a849caa345&o=) no-repeat center center; background-size: cover;">
+          <div class="B_hotel_show_hotel B_hotel_show_three" v-for="(item, index) in locationSub" :key="index">
+            <div class="B_hotel_show_bgc" :style="`background: url(${item.location_Img}) no-repeat center center; background-size: cover;`">
               <router-link to="">
                 <div class="B_hotel_show_title">
                   <h3>
-                    海口
+                    {{item.hotel_Location}}
                     <img src="@/assets/images/nationalFlag/china.png" alt="中国">
                   </h3>
                   <div class="B_hotel_down" @mouseenter="showSubInterest(index)" @mouseleave="closeSubInterest()" @click="closeSubHotel(index)">
@@ -47,11 +47,11 @@
                   <div class="B_hotel_interest" v-show="isShowSubInterestIndex === index">
                     <span>不感兴趣</span>
                   </div>
-                  <p>168家住宿</p>
+                  <p>{{item.hotel_Count}}家住宿</p>
                 </div>
                 <div class="B_hotel_show_price">
                   <span class="B_hotel_price_copy">均价</span>
-                  <span class="B_hotel_price_value">335元</span>
+                  <span class="B_hotel_price_value">{{item.hotel_Price}}元</span>
                 </div>
               </router-link>
             </div>
@@ -69,7 +69,10 @@ export default {
     return {
       isShowInterestIndex: -1,
       isShowSubInterestIndex: -1,
-      titleOpacity: 0.7
+      titleOpacity: 0.7,
+      locationMain: [],
+      locationSub: []
+      // locationLen: 0
     }
   },
   methods: {
@@ -91,6 +94,23 @@ export default {
     closeSubHotel (index) {
       console.log(index)
     }
+  },
+  created () {
+    this.$http({
+      method: 'get',
+      baseURL: 'location'
+    }).then(res => {
+      // console.log(res)
+      if (res.data.code === 200) {
+        // this.locationLen = res.data.data.length()
+        this.locationMain = res.data.data.slice(0, 2)
+        this.locationSub = res.data.data.slice(2, 5)
+        // console.log(this.locationMain)
+        // console.log(this.locationSub)
+      } else {
+        console.log(res.data.msg)
+      }
+    })
   }
 }
 </script>

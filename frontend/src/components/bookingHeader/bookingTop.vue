@@ -87,19 +87,19 @@ export default {
           this.useCurrency.push(this.currency[i])
         }
       }
-      console.log(this.useCurrency)
+      // console.log(this.useCurrency)
     },
     addChoise () {
       this.isCurrencyShow = !this.isCurrencyShow
     }
   },
   created () {
-    console.log('进入')
+    // console.log('进入')
     this.$http({
       method: 'get',
       baseURL: 'currency'
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.data.code === 200) {
         this.currency = res.data.data
         // console.log(this.currency)

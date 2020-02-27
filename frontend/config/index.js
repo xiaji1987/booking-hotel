@@ -17,6 +17,20 @@ module.exports = {
         pathRewrite: {
           '^/currency': ''//重写接口,后面可以使重写的新路径，一般不做更改
         }
+      },
+      '/location': {
+        target: 'http://127.0.0.1:7001/api/booking/location',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/location': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        }
+      },
+      '/hotelType': {
+        target: 'http://127.0.0.1:7001/api/booking/hotelType',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/hotelType': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        }
       }
     },
 

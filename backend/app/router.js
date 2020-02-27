@@ -7,5 +7,6 @@ module.exports = app => {
   const { router, controller } = app;
   router.get('/api/booking/currency', controller.booking.getCurrency);
   router.get('/api/booking/location', controller.booking.getLocation);
+  router.get('/api/booking/hotelType', controller.booking.getHotelType);
   router.post('/api/user/login', controller.user.login)
 };

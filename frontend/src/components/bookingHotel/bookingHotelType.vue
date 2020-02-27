@@ -5,21 +5,21 @@
     </div>
     <div class="B_type_list">
       <ul class="B_type_ul" :style="`left: ${typeUlLeft}px`">
-        <li class="B_type_li" v-for="(item, index) in 10" :key="index">
+        <li class="B_type_li" v-for="(item, index) in hotelType" :key="index">
           <div class="B_type_hotel">
             <div class="B_type_hotel_img">
               <router-link to="">
-                <img src="@/assets/images/hotel/9f60235dc09a3ac3f0a93adbc901c61ecd1ce72e.jpg" alt="公寓图片">
+                <img :src="item.hotel_type_ImgSrc" alt="公寓图片">
               </router-link>
             </div>
             <div class="B_type_hotel_info">
               <div class="B_type_hotel_name">
                 <router-link to="">
-                  <span>公寓</span>
+                  <span>{{item.hotel_type_Name}}</span>
                 </router-link>
               </div>
               <div class="B_type_hotel_num">
-                <span>797902间公寓</span>
+                <span>{{item.hotel_type_Num}}家{{item.hotel_type_Name}}</span>
               </div>
             </div>
           </div>
@@ -41,6 +41,7 @@ export default {
     return {
       typeUlLeft: 0,
       buttonClick: 0,
+      hotelType: [],
       buttonInfo: [
         {
           imgSrc: require('@/assets/images/iconfont/left.png'),
@@ -89,6 +90,19 @@ export default {
       }
       // console.log(this.buttonInfo[1].buttonOpacity)
     }
+  },
+  created () {
+    this.$http({
+      method: 'get',
+      baseURL: 'hotelType'
+    }).then(res => {
+      console.log(res)
+      if (res.data.code === 200) {
+        this.hotelType = res.data.data
+      } else {
+        console.log(res.data.msg)
+      }
+    })
   }
 }
 </script>

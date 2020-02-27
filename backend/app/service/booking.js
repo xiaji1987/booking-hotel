@@ -25,9 +25,29 @@ class BookingService extends Service {
 
   async getLocation() {
     const { ctx, app } = this
-    console.log('进入dufuwucheng')
+    // console.log('进入dufuwucheng')
     const mess = await ctx.model.Location.findAll()
-    console.log(mess)
+    // console.log(mess)
+    if(mess.length === 0) {
+      ctx.body = {
+        code: 404,
+        msg:'失败',
+        data: '未找到相关资源'
+      }
+    } else {
+      ctx.body = {
+        code: 200,
+        msg:'成功',
+        data: mess
+      }
+    }
+  }
+
+  async getHotelType() {
+    const { ctx, app } = this
+    // console.log('进入dufuwucheng')
+    const mess = await ctx.model.HotelType.findAll()
+    // console.log(mess)
     if(mess.length === 0) {
       ctx.body = {
         code: 404,
