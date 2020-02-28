@@ -31,7 +31,35 @@ module.exports = {
         pathRewrite: {
           '^/hotelType': ''//重写接口,后面可以使重写的新路径，一般不做更改
         }
-      }
+      },
+      '/hotelRent': {
+        target: 'http://127.0.0.1:7001/api/booking/hotelRent',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/hotelRent': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        } 
+      },
+      '/hotelStation': {
+        target: 'http://127.0.0.1:7001/api/booking/hotelStation',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/hotelStation': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        }
+      },
+      '/login': {
+        target: 'http://127.0.0.1:7001/api/user/login',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/login': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        }
+      },
+      '/register': {
+        target: 'http://127.0.0.1:7001/api/user/register',//目标接口域名
+        changeOrigin: true,//是否跨域
+        pathRewrite: {
+          '^/register': ''//重写接口,后面可以使重写的新路径，一般不做更改
+        }
+      }
     },
 
     // Various Dev Server settings

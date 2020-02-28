@@ -5,27 +5,27 @@
     </div>
     <div class="B_rent_list">
       <ul class="B_rent_ul">
-        <li class="B_rent_li" v-for="(item, index) in 5" :key="index">
+        <li class="B_rent_li" v-for="(item, index) in hotelRent" :key="index">
           <router-link to="">
             <div class="B_rent_hotel">
               <div class="B_rent_hotel_img">
-                <img src="@/assets/images/hotel/60345914.jpg" alt="短租图片">
+                <img :src="item.hotel_rent_ImgSrc" alt="短租图片">
               </div>
               <div class="B_rent_hotel_info">
                 <div class="B_rent_hotel_name">
-                  <span>休格公寓式酒店</span>
+                  <span>{{item.hotel_rent_Name}}</span>
                 </div>
                 <div class="B_rent_hotel_location">
-                  <span>里约热内卢</span>
+                  <span>{{item.hotel_rent_Location}}</span>
                 </div>
-                <div class="B_rent_hotel_price">4444元起</div>
+                <div class="B_rent_hotel_price">{{item.hotel_rent_Price}}元起</div>
                 <div class="B_rent_hotel_comment">
                   <div class="B_rent_hotel_score">
-                    <span>9.3</span>
+                    <span>{{item.hotel_rent_Score}}</span>
                   </div>
                   <div class="B_rent_hotel_comment_num">
                     <span class="B_rent_hotel_grade">好极了</span>
-                    <span class="B_rent_hotel_yelp"> · 17条住客点评</span>
+                    <span class="B_rent_hotel_yelp"> · {{item.hotel_rent_EvaluateNum}}条住客点评</span>
                   </div>
                 </div>
               </div>
@@ -39,7 +39,25 @@
 
 <script>
 export default {
-  name: 'bookingHotelRent'
+  name: 'bookingHotelRent',
+  data () {
+    return {
+      hotelRent: []
+    }
+  },
+  created () {
+    this.$http({
+      method: 'get',
+      baseURL: 'hotelRent'
+    }).then(res => {
+      // console.log(res)
+      if (res.data.code === 200) {
+        this.hotelRent = res.data.data
+      } else {
+        console.log(res.data.msg)
+      }
+    })
+  }
 }
 </script>
 
@@ -87,6 +105,9 @@ export default {
               font-weight 400
               line-height 15px
               color #0077cc
+              overflow hidden
+              white-space nowrap
+              text-overflow ellipsis
             .B_rent_hotel_location
               font-size 14px
               font-weight 400

@@ -5,27 +5,27 @@
     </div>
     <div class="B_station_images_show">
       <div class="B_station_three_img">
-        <div class="B_station_img" v-for="(item, index) in 3" :key="index">
+        <div class="B_station_img" v-for="(item, index) in hotelMainStation" :key="index">
           <div class="B_station_img_src">
-            <img src="@/assets/images/stationImg/29920094.jpg" alt="station图片">
+            <img :src="item.hotel_station_ImgSrc" alt="station图片">
           </div>
           <div class="B_station_content">
-            <div class="B_station_img_title">情迷美利坚丨美妙自然风光</div>
-            <div class="B_station_img_detail">如果你不曾到过美国，不曾为其壮丽的大自然感动过，一定要收下这篇旅行者攻略</div>
+            <div class="B_station_img_title">{{item.hotel_station_Title}}</div>
+            <div class="B_station_img_detail">{{item.hotel_station_Detail}}</div>
           </div>
         </div>
       </div>
       <div class="B_station_two_img">
-        <div class="B_station_img B_station_img_two" v-for="(item, index) in 2" :key="index">
+        <div class="B_station_img B_station_img_two" v-for="(item, index) in hotelSubStation" :key="index">
           <div class="B_station_img_src">
-            <img src="@/assets/images/stationImg/29857283.jpg" alt="station图片">
+            <img :src="item.hotel_station_ImgSrc" alt="station图片">
           </div>
           <div class="B_station_content">
             <div class="B_station_img_title">
-              <span>7块蛋糕带你环游世界</span>
+              <span>{{item.hotel_station_Title}}</span>
             </div>
             <div class="B_station_img_detail">
-              <span>以地名命名的美味蛋糕，边走边吃不怕胖</span>
+              <span>{{item.hotel_station_Detail}}</span>
             </div>
           </div>
         </div>
@@ -38,7 +38,24 @@
 export default {
   name: 'bookingHotelStation',
   data () {
-    return {}
+    return {
+      hotelMainStation: [],
+      hotelSubStation: []
+    }
+  },
+  created () {
+    this.$http({
+      method: 'get',
+      baseURL: 'hotelStation'
+    }).then(res => {
+      // console.log(res)
+      if (res.data.code === 200) {
+        this.hotelMainStation = res.data.data.slice(0, 3)
+        this.hotelSubStation = res.data.data.slice(3, 5)
+      } else {
+        console.log(res.data.msg)
+      }
+    })
   }
 }
 </script>

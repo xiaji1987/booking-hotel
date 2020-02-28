@@ -96,7 +96,7 @@ export default {
       method: 'get',
       baseURL: 'hotelType'
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.data.code === 200) {
         this.hotelType = res.data.data
       } else {

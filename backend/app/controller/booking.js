@@ -19,6 +19,18 @@ class BookingController extends Controller {
     // console.log("进入")
     await ctx.service.booking.getHotelType()
   }
+  
+  async getHotelRent() {
+    const { ctx } = this;
+    // console.log("进入")
+    await ctx.service.booking.getHotelRent()
+  }
+
+  async getHotelStation() {
+    const { ctx } = this;
+    // console.log("进入")
+    await ctx.service.booking.getHotelStation()
+  }
 }
 
 module.exports = BookingController;

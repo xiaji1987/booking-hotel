@@ -62,6 +62,46 @@ class BookingService extends Service {
       }
     }
   }
+
+  async getHotelRent() {
+    const { ctx, app } = this
+    // console.log('进入dufuwucheng')
+    const mess = await ctx.model.HotelRent.findAll()
+    // console.log(mess)
+    if(mess.length === 0) {
+      ctx.body = {
+        code: 404,
+        msg:'失败',
+        data: '未找到相关资源'
+      }
+    } else {
+      ctx.body = {
+        code: 200,
+        msg:'成功',
+        data: mess
+      }
+    }
+  }
+
+  async getHotelStation() {
+    const { ctx, app } = this
+    // console.log('进入dufuwucheng')
+    const mess = await ctx.model.HotelStation.findAll()
+    // console.log(mess)
+    if(mess.length === 0) {
+      ctx.body = {
+        code: 404,
+        msg:'失败',
+        data: '未找到相关资源'
+      }
+    } else {
+      ctx.body = {
+        code: 200,
+        msg:'成功',
+        data: mess
+      }
+    }
+  }
 }
 
 module.exports = BookingService;
