@@ -55,8 +55,9 @@
 - .\node_modules\.bin\sequelize db:seed:undo:all // 删除所有导入种子文件
 
 ##egg改变的目录结构
-├── Readme.md                   
-├── app                         
+
+├── Readme.md               
+├── app                     
 │   ├── controller              
 │   │    ├──booking.js      
 │   │    └──user.js
@@ -72,13 +73,13 @@
 │   ├── service
 │   │    ├──booking.js
 │   │    └──user.js        
-│   └── router.js              // 本地
-├── config                     // 配置
+│   └── router.js              
+├── config                     
 │   ├── config.default.js
-│   └── tplugin.js              // 测试环境
-├── database                     // 配置
+│   └── tplugin.js              
+├── database                    
 │   ├──migrations
-│   ├──seeders           // 测试环境 
+│   ├──seeders           
 │   └──config.json
 │
 ├── .sequelizerc
