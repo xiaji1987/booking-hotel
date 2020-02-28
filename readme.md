@@ -54,18 +54,18 @@
 - .\node_modules\.bin\sequelize db:seed:all // 导入种子文件
 - .\node_modules\.bin\sequelize db:seed:undo:all // 删除所有导入种子文件
 
-#egg改变的目录结构
-├── Readme.md                   // help
-├── app                         // 应用
-│   ├── controller              //
-│   │    ├──booking.js       //
+##egg改变的目录结构
+├── Readme.md                   
+├── app                         
+│   ├── controller              
+│   │    ├──booking.js      
 │   │    └──user.js
 │   ├── model
-│   │    ├── currency.js                 // 实验
-│   │    ├── hotelRent.js                // 配置控制
+│   │    ├── currency.js                 
+│   │    ├── hotelRent.js                
 │   │    ├── hotelStation.js
-│   │    ├── hotelType.js                  // 实验
-│   │    ├── location.js                // 配置控制
+│   │    ├── hotelType.js                  
+│   │    ├── location.js
 │   │    └── user.js
 │   ├── public
 │   │    └──images                
