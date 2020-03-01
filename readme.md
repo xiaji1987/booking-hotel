@@ -53,6 +53,34 @@
 ## 导入种子文件的数据
 - .\node_modules\.bin\sequelize db:seed:all // 导入种子文件
 - .\node_modules\.bin\sequelize db:seed:undo:all // 删除所有导入种子文件
+##egg改变的目录结构
 
+├── Readme.md               
+├── app                     
+│   ├── controller              
+│   │    ├──booking.js      
+│   │    └──user.js
+│   ├── model
+│   │    ├── currency.js                 
+│   │    ├── hotelRent.js                
+│   │    ├── hotelStation.js
+│   │    ├── hotelType.js                  
+│   │    ├── location.js
+│   │    └── user.js
+│   ├── public
+│   │    └──images                
+│   ├── service
+│   │    ├──booking.js
+│   │    └──user.js        
+│   └── router.js              
+├── config                     
+│   ├── config.default.js
+│   └── tplugin.js              
+├── database                    
+│   ├──migrations
+│   ├──seeders           
+│   └──config.json
+│
+├── .sequelizerc
 ## 前端页面的编写
 vue + axios + stylus

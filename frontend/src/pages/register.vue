@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import { post } from '../utils/index'
 export default {
   name: 'register',
   data () {
@@ -82,7 +83,7 @@ export default {
     phoneClick () {
       this.isShowPhone = !this.isShowPhone
     },
-    register () {
+    async register () {
       const phoneNum = this.phoneNum
       const password = this.password
       const params = {
@@ -98,24 +99,18 @@ export default {
         this.registerMsg = '输入的不是电话号码'
         this.setTimeMsg()
       } else {
-        this.$http({
-          method: 'post',
-          baseURL: 'register',
-          data: params
-        }).then(res => {
-          // console.log(res)
-          if (res.data.code === 356) {
-            this.isShowMsg = true
-            this.registerMsg = res.data.msg
-            this.phoneNum = ''
-            this.password = ''
-            this.setTimeMsg()
-          } else if (res.data.code === 200) {
-            this.isShowMsg = true
-            this.registerMsg = res.data.msg
-            this.setTimeMsg()
-          }
-        })
+        const data = await post('/user/register', params)
+        if (data.code === 356) {
+          this.isShowMsg = true
+          this.registerMsg = data.msg
+          this.phoneNum = ''
+          this.password = ''
+          this.setTimeMsg()
+        } else if (data.code === 200) {
+          this.isShowMsg = true
+          this.registerMsg = data.msg
+          this.setTimeMsg()
+        }
       }
     },
     setTimeMsg () {

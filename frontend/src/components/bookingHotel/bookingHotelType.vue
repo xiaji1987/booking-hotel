@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { get } from '../../utils/index'
 export default {
   name: 'B_bookingHotelType',
   data () {
@@ -55,6 +56,9 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    this.getHotelType()
   },
   methods: {
     buttonOpacityUp (index) {
@@ -89,20 +93,13 @@ export default {
         // console.log('进入5了', this.buttonInfo[1].buttonOpacity)
       }
       // console.log(this.buttonInfo[1].buttonOpacity)
-    }
-  },
-  created () {
-    this.$http({
-      method: 'get',
-      baseURL: 'hotelType'
-    }).then(res => {
-      // console.log(res)
-      if (res.data.code === 200) {
-        this.hotelType = res.data.data
-      } else {
-        console.log(res.data.msg)
+    },
+    async getHotelType () {
+      const data = await get('/booking/hotelType')
+      if (data.code === 200) {
+        this.hotelType = data.data
       }
-    })
+    }
   }
 }
 </script>

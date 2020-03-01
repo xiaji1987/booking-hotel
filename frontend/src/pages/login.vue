@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { post } from '../utils/index'
 export default {
   name: 'login',
   data () {
@@ -77,7 +78,7 @@ export default {
     phoneClick () {
       this.isShowPhone = !this.isShowPhone
     },
-    login () {
+    async login () {
       // console.log(this.phoneNum, this.password)
       const phoneNum = this.phoneNum
       const password = this.password
@@ -95,27 +96,21 @@ export default {
         this.loginMsg = '输入的不是电话号码'
         this.setTimeMsg()
       } else {
-        this.$http({
-          method: 'post',
-          baseURL: 'login',
-          data: params
-        }).then(res => {
-          // console.log(res)
-          if (res.data.code === 378) {
-            this.isShowMsg = true
-            this.loginMsg = res.data.msg
-            this.phoneNum = ''
-            this.password = ''
-            this.setTimeMsg()
-          } else if (res.data.code === 399) {
-            this.isShowMsg = true
-            this.loginMsg = res.data.msg
-            this.password = ''
-            this.setTimeMsg()
-          } else if (res.data.code === 200) {
-            this.$router.push('/')
-          }
-        })
+        const data = await post('/user/login', params)
+        if (data.code === 378) {
+          this.isShowMsg = true
+          this.loginMsg = data.msg
+          this.phoneNum = ''
+          this.password = ''
+          this.setTimeMsg()
+        } else if (data.code === 399) {
+          this.isShowMsg = true
+          this.loginMsg = data.msg
+          this.password = ''
+          this.setTimeMsg()
+        } else if (data.code === 200) {
+          this.$router.push('/')
+        }
       }
     },
     setTimeMsg () {

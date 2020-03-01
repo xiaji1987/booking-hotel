@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { get } from '../../utils/index'
 export default {
   name: 'bookingHotelShow',
   data () {
@@ -74,6 +75,9 @@ export default {
       locationSub: []
       // locationLen: 0
     }
+  },
+  mounted () {
+    this.getLocation()
   },
   methods: {
     showInterest (index) {
@@ -93,24 +97,14 @@ export default {
     },
     closeSubHotel (index) {
       console.log(index)
-    }
-  },
-  created () {
-    this.$http({
-      method: 'get',
-      baseURL: 'location'
-    }).then(res => {
-      // console.log(res)
-      if (res.data.code === 200) {
-        // this.locationLen = res.data.data.length()
-        this.locationMain = res.data.data.slice(0, 2)
-        this.locationSub = res.data.data.slice(2, 5)
-        // console.log(this.locationMain)
-        // console.log(this.locationSub)
-      } else {
-        console.log(res.data.msg)
+    },
+    async getLocation () {
+      const data = await get('/booking/location')
+      if (data.code === 200) {
+        this.locationMain = data.data.slice(0, 2)
+        this.locationSub = data.data.slice(2, 5)
       }
-    })
+    }
   }
 }
 </script>

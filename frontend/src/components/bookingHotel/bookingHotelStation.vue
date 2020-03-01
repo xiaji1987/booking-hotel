@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { get } from '../../utils/index'
 export default {
   name: 'bookingHotelStation',
   data () {
@@ -43,19 +44,17 @@ export default {
       hotelSubStation: []
     }
   },
-  created () {
-    this.$http({
-      method: 'get',
-      baseURL: 'hotelStation'
-    }).then(res => {
-      // console.log(res)
-      if (res.data.code === 200) {
-        this.hotelMainStation = res.data.data.slice(0, 3)
-        this.hotelSubStation = res.data.data.slice(3, 5)
-      } else {
-        console.log(res.data.msg)
+  mounted () {
+    this.getHotelStation()
+  },
+  methods: {
+    async getHotelStation () {
+      const data = await get('/booking/hotelStation')
+      if (data.code === 200) {
+        this.hotelMainStation = data.data.slice(0, 3)
+        this.hotelSubStation = data.data.slice(3, 5)
       }
-    })
+    }
   }
 }
 </script>

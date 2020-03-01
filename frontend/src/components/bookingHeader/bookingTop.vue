@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import { get } from '../../utils/index'
 export default {
   name: 'bookingTop',
   data () {
@@ -81,33 +82,27 @@ export default {
     }
   },
   methods: {
+    async getCurrency () {
+      const data = await get('/booking/currency')
+      // console.log(data)
+      if (data.code === 200) {
+        this.currency = data.data
+      }
+      this.getUseCurrency()
+    },
     getUseCurrency () {
       for (let i = 0; i < this.currency.length; i++) {
         if (this.currency[i].is_currency_use === true) {
           this.useCurrency.push(this.currency[i])
         }
       }
-      // console.log(this.useCurrency)
     },
     addChoise () {
       this.isCurrencyShow = !this.isCurrencyShow
     }
   },
-  created () {
-    // console.log('进入')
-    this.$http({
-      method: 'get',
-      baseURL: 'currency'
-    }).then(res => {
-      // console.log(res)
-      if (res.data.code === 200) {
-        this.currency = res.data.data
-        // console.log(this.currency)
-        this.getUseCurrency()
-      } else {
-        console.log(res.data.msg)
-      }
-    })
+  mounted () {
+    this.getCurrency()
   }
 }
 </script>
