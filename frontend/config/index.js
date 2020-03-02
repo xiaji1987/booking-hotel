@@ -11,57 +11,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/currency': {
-        target: 'http://127.0.0.1:7001/api/booking/currency',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/currency': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        }
-      },
-      '/location': {
-        target: 'http://127.0.0.1:7001/api/booking/location',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/location': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        }
-      },
-      '/hotelType': {
-        target: 'http://127.0.0.1:7001/api/booking/hotelType',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/hotelType': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        }
-      },
-      '/hotelRent': {
-        target: 'http://127.0.0.1:7001/api/booking/hotelRent',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/hotelRent': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        } 
-      },
-      '/hotelStation': {
-        target: 'http://127.0.0.1:7001/api/booking/hotelStation',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/hotelStation': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        }
-      },
-      '/login': {
-        target: 'http://127.0.0.1:7001/api/user/login',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/login': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        }
-      },
-      '/register': {
-        target: 'http://127.0.0.1:7001/api/user/register',//目标接口域名
-        changeOrigin: true,//是否跨域
-        pathRewrite: {
-          '^/register': ''//重写接口,后面可以使重写的新路径，一般不做更改
-        }
-      }
-    },
+    proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -101,7 +51,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
